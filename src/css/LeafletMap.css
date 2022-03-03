@@ -1,0 +1,78 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+  
+  *,
+  *:after,
+  *::before {
+    box-sizing: inherit;
+  }
+
+.location-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 100vh;
+}
+
+.map-data-tools {
+    background-color: #ebe0d1;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 30%;
+    padding: 10px;
+}
+
+.leaflet-container {
+    height: 100vh;
+    width: 100%;
+}
+
+/* .spot-type {
+    
+} */
+
+.spot-type li {
+    list-style: none;
+    margin-left: -40px;
+}
+
+.rent-type li {
+    list-style: none;
+    margin-left: -40px;
+}
+
+.c-button {
+  appearance: none;
+  background: #000;
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  min-width: 100%;
+  padding: 8px 16px;
+}
+
+.c-button:hover {
+  background: #e4b46a;
+  color: #000;
+}
+
+.c-button:focus {
+  box-shadow: 0 0 0 4px #cbd6ee;
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+    .grid-1-2 {
+      align-items: start;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+}
