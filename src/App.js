@@ -1,5 +1,4 @@
 import React from "react";
-import LeafletMap from "./components/LeafletMap";
 import MapTools from "./components/MapTools";
 import SpotsOnMap from "./components/SpotsOnMap";
 

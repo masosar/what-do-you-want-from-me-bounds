@@ -1,8 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
+import { Checkbox, Collapse } from "antd";
+
+const { Panel } = Collapse;
+const spotType = [
+  {
+    _id: 1,
+    type: "Street spot",
+  },
+  {
+    _id: 2,
+    type: "In mall spot",
+  },
+  {
+    _id: 3,
+    type: "In mall island",
+  },
+  {
+    _id: 4,
+    type: "Other",
+  },
+];
+
+// console.log("spotType", spotType);
 
 const MapTools = () => {
+  // const [checked, setChecked] = useState([]);
+
+  // const handleToggle = (value) => {
+  //   const currentIndex = checked.indexOf(value);
+  //   const newChecked = [...checked];
+
+  //   if (currentIndex === -1) {
+  //     newChecked.push(value);
+  //   } else {
+  //     newChecked.splice(currentIndex, 1);
+  //   }
+  //   setChecked(newChecked);
+  // };
+
+  // const renderSpotTypeCheckboxes = () =>
+  //   spotType.map((value, index) => (
+  //     <React.Fragment key={index}>
+  //       <Checkbox
+  //         onChange={() => {
+  //           handleToggle(value._id);
+  //         }}
+  //         type="checkbox"
+  //         checked
+  //       />
+  //       <span>{value.type}</span>
+  //     </React.Fragment>
+  //   ));
+
   return (
     <div className="filter-container">
+      <Collapse defaultActiveKey={"0"}>
+        <Panel header="Tipo de Spot" key="1">
+          {/* {renderSpotTypeCheckboxes} */}
+          <input type="checkbox" id="streetspot1" value={1} />
+          <input type="checkbox" id="streetspot2" value={2} />
+          <input type="checkbox" id="streetspot3" value={3} />
+        </Panel>
+      </Collapse>
       <h1>Búsqueda de spots</h1>
       <div className="spot-type">
         <h2>Tipo de Spot</h2>

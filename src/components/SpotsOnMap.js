@@ -10,7 +10,8 @@ const SpotsOnMap = () => {
   const [loading, setLoading] = useState(false);
 
   //   let api = helpHttp();
-  let url = "https://staging.spot2.mx/api/spots/";
+  // let url = "https://staging.spot2.mx/api/spots/";
+  let url = "/spots";
 
   useEffect(() => {
     setLoading(true);
@@ -18,9 +19,9 @@ const SpotsOnMap = () => {
       .get(url)
       .then((res) => {
         if (!res.err) {
-          setSpotData(res.data.spots);
-          console.log("spotData", spotData);
+          setSpotData(res);
           setError(null);
+          // console.log("res", res);
         } else {
           setSpotData(null);
           setError(res);
@@ -29,13 +30,19 @@ const SpotsOnMap = () => {
       });
   }, [url]);
 
-  // Filters - The api delivers data from different cities. Firs I get only for cdmx and update the value of the state
+  // Filters - The api delivers data from different cities. Firs I get only for cdmx (and where is_public > 0) and update the value of the state
   const convertToObject = Object.values(spotData);
-  const soloCdmx = convertToObject.filter((spot) => spot.city_id === 184);
+  const spotsInitiallyFiltered = convertToObject.filter(
+    (spot) => spot.city_id === 184 && spot.is_public > 0
+  );
 
   return (
     <div className="grid-1-2">
-      {loading ? loading && <Loader /> : <LeafletMap spots={soloCdmx} />}
+      {loading ? (
+        loading && <Loader />
+      ) : (
+        <LeafletMap spots={spotsInitiallyFiltered} />
+      )}
       {/* <Loader /> */}
       {error && (
         <Message
